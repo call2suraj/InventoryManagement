@@ -1,7 +1,9 @@
 import React from "react";
 import { BrowserRouter as Router, Route, Link } from "react-router-dom";
 import Config from './Config';
-
+import AddLine from './AddLine';
+import ExceptionReport from './ExceptionReport';
+import LandingPage from './LandingPage';
 
 
 
@@ -27,10 +29,16 @@ const login = () => (
           <Link to="/">Home</Link>
         </li>
         <li>
-          <Link to="/Config">About</Link>
+          <Link to="/Config">Config</Link>
         </li>
         <li>
-          <Link to="/topics">Topics</Link>
+          <Link to="/addLine">AddLine</Link>
+        </li>
+        <li>
+          <Link to="/exceptionReport">ExceptionReport</Link>
+        </li>
+        <li>
+          <Link to="/landingPage">LandingPage</Link>
         </li>
       </ul>
 
@@ -38,8 +46,9 @@ const login = () => (
 
       <Route exact path="/" component={Home} />
       <Route exact path="/Config" component={Config} />
-      <Route exact path="/topics" component={Topics} />
-      
+      <Route exact path="/addLine" component={AddLine} />
+      <Route exact path="/landingPage" component={LandingPage} />
+      <Route exact path="/exceptionReport" component={ExceptionReport} />
     </div>
   </Router>
 );
