@@ -6,6 +6,7 @@ import ReportMenu from './ReportMenu';
 //import LeftDrawer from './LeftDrawer';
 import ConfigureMenu from './ConfigureMenu';
 
+import ScheduleMenu from './ScheduleMenu';
 import ReconMenu from './ReconMenu';
 class Header extends Component {
     render() {
@@ -17,9 +18,11 @@ class Header extends Component {
                  title="Inventory Managemnet System"
                  onLeftIconButtonClick={this.handleToggle}
                 >
-                <Menus />
+
                 <ConfigureMenu style={{borderColor: '#00bcd4',textColor:'#00bcd4', }}/>
+                <ScheduleMenu />
                 <ReconMenu />
+                <Menus />
                 <ReportMenu />
                 </AppBar>
 

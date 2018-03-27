@@ -22,10 +22,18 @@ class UserLogin extends Component {
 constructor(props){
   super(props);
   this.state={
-  username:'',
-  password:''
+    username:'',
+    password:'',
+    value: 1,
   }
+    this.handleChange = this.handleChange.bind(this);
  }
+
+   handleChange (event, index, value){
+     this.setState({value});
+   }
+
+
 render() {
     return (
       <div style={{textAlign:'left', backgroundColor:'whitesmoke',
@@ -33,7 +41,7 @@ render() {
 
         <MuiThemeProvider>
           <div style={{marginLeft:2}}>
-            <h2 style={{marginLeft:10,paddingTop:15}}>Login</h2>
+            <h2 style={{marginLeft:22,paddingTop:15}}>Login</h2>
             <Divider style={{margin:5}}/>
 
             <div style={{marginLeft:22 }}>

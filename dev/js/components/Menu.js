@@ -33,7 +33,7 @@ export default class Menus extends React.Component {
           style={styles.customWidth}
           autoWidth={false}
         >
-          <MenuItem value={1} primaryText="Custom width" />
+          <MenuItem value={1} primaryText="Closing" />
           <MenuItem value={2} primaryText="Every Night" />
           <MenuItem value={3} primaryText="Weeknights" />
           <MenuItem value={4} primaryText="Weekends" />

@@ -4,7 +4,7 @@ import MenuItem from 'material-ui/MenuItem';
 
 const styles = {
   customWidth: {
-    width: 170,
+    width: 150,
     backgroundColor: '#00bcd4',
     borderColor: '#00bcd4',
     borderWidth:0,

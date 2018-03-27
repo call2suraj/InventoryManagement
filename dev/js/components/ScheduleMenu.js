@@ -4,7 +4,7 @@ import MenuItem from 'material-ui/MenuItem';
 
 const styles = {
   customWidth: {
-    width: 160,
+    width: 225,
     borderWidth:0,
     top:0,
     textColor:'#00bcd4',
@@ -15,7 +15,7 @@ const styles = {
   },
 };
 
-export default class ReportMenu extends React.Component {
+export default class ScheduleMenu extends React.Component {
 
   constructor(props) {
     super(props);
@@ -39,7 +39,7 @@ export default class ReportMenu extends React.Component {
           style={styles.customWidth}
           autoWidth={false}
         >
-        <MenuItem  value={0} primaryText="Reporting"/>
+        <MenuItem  value={0} primaryText="Inventory Schedule"/>
           <MenuItem value={1} primaryText="Line" />
           <MenuItem value={2} primaryText="Security" />
           <MenuItem value={3} primaryText="Department" />
