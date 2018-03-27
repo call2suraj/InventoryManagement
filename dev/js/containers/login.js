@@ -5,6 +5,8 @@ import AddLine from './AddLine';
 import ExceptionReport from './ExceptionReport';
 import LandingPage from './LandingPage';
 
+import UserLogin from './UserLogin';
+
 
 
 const Button = () => (
@@ -40,11 +42,15 @@ const login = () => (
         <li>
           <Link to="/landingPage">LandingPage</Link>
         </li>
+        <li>
+          <Link to="/userLogin">UserLogin</Link>
+        </li>
       </ul>
 
       <hr />
 
       <Route exact path="/" component={Home} />
+        <Route exact path="/UserLogin" component={UserLogin} />
       <Route exact path="/Config" component={Config} />
       <Route exact path="/addLine" component={AddLine} />
       <Route exact path="/landingPage" component={LandingPage} />

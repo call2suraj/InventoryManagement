@@ -5,6 +5,7 @@ import Login from '../containers/Login';
 import AppBar from 'material-ui/AppBar';
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
 import Header from '../components/Header';
+import UserLogin from '../containers/UserLogin';
 require('../../scss/style.scss');
 
 const App = () => (
@@ -12,8 +13,10 @@ const App = () => (
 
   <MuiThemeProvider>
   <div>
-<Header />
-      <Login />
+      <Header />
+      <div style={{ position: 'fixed',display: 'flex',marginLeft:'480',marginTop:'100', borderWidth:1,}}>
+        <Login/>
+      </div>
 
   </div>
  </MuiThemeProvider>
