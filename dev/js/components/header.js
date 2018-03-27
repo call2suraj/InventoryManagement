@@ -9,6 +9,7 @@ import ScheduleMenu from './ScheduleMenu';
 import ReconMenu from './ReconMenu';
 import SvgIcon from 'material-ui/SvgIcon';
 import Ionicon from 'react-ionicons';
+import LanguageChange from './LanguageChange';
 
 import {blue500, red500, greenA200} from 'material-ui/styles/colors';
 const iconStyles = {
@@ -39,8 +40,8 @@ class Header extends Component {
                 <Menus />
                 <ReportMenu />
                 <HomeIcon style={iconStyles} />
-                  <Ionicon icon="md-settings" style={{paddingTop:15, marginRight: 11}} fontSize="25px" onClick={() => console.log('Hi!')} color="white"/>
-                    <Ionicon icon="md-log-out" style={{paddingTop:15}} fontSize="25px" onClick={() => console.log('Hi!')} color="white"/>
+                  <LanguageChange />
+                  <Ionicon icon="md-log-out" style={{paddingTop:15}} fontSize="25px" onClick={() => console.log('Hi!')} color="white"/>
                 </AppBar>
 
 

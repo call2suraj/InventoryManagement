@@ -15,7 +15,8 @@ const styles = {
   checkbox: {
     marginTop:15,
     marginBottom: 16,
-    color:'white'
+    color:'white',
+    borderColor:'green'
   },
 };
 class UserLogin extends Component {
@@ -80,7 +81,7 @@ render() {
                 </SelectField>
                 <Checkbox
                           label="Remember Me"
-                          style={styles.checkbox}
+                          style={styles.checkbox} 
                         />
 
                 <div style={{marginTop:15, textAlign:'center' }}>
