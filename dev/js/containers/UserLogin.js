@@ -15,7 +15,7 @@ const styles = {
   checkbox: {
     marginTop:15,
     marginBottom: 16,
-    color:'gray'
+    color:'white'
   },
 };
 class UserLogin extends Component {

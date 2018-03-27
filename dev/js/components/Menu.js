@@ -5,7 +5,8 @@ import MenuItem from 'material-ui/MenuItem';
 const styles = {
   customWidth: {
     width: 190,
-      height:0
+    height:0,
+    color:'white'
   },
 };
 
@@ -25,12 +26,12 @@ export default class Menus extends React.Component {
 
   render() {
     return (
-      <div>
+      <div style={{color:'white'}}>
 
         <DropDownMenu
           value={this.state.value}
           onChange={this.handleChange}
-          style={styles.customWidth}
+          style={styles.customWidth} labelStyle={{color:'white'}}
           autoWidth={false}
         >
           <MenuItem value={1} primaryText="Closing" />

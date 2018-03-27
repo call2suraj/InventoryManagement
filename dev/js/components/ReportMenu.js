@@ -36,7 +36,7 @@ export default class ReportMenu extends React.Component {
         <DropDownMenu
           value={this.state.value}
           onChange={this.handleChange}
-          style={styles.customWidth}
+          style={styles.customWidth} labelStyle={{color:'white'}}
           autoWidth={false}
         >
         <MenuItem  value={0} primaryText="Reporting"/>

@@ -7,10 +7,9 @@ const styles = {
     width: 225,
     borderWidth:0,
     top:0,
-    textColor:'#00bcd4',
-    backgroundColor: '#00bcd4',
-    borderColor: '#00bcd4',
-    color:'#00bcd4',
+    color:'white',
+    backgroundColor: 'white',
+    color:'blue',
       height:0
   },
 };
@@ -31,15 +30,15 @@ export default class ScheduleMenu extends React.Component {
 
   render() {
     return (
-      <div style={styles.customWidth}>
+      <div >
 
         <DropDownMenu
           value={this.state.value}
           onChange={this.handleChange}
           style={styles.customWidth}
-          autoWidth={false}
+          autoWidth={false} labelStyle={{color:'white'}}
         >
-        <MenuItem  value={0} primaryText="Inventory Schedule"/>
+        <MenuItem  value={0} primaryText="Inventory Schedule" style={styles.customWidth}/>
           <MenuItem value={1} primaryText="Line" />
           <MenuItem value={2} primaryText="Security" />
           <MenuItem value={3} primaryText="Department" />

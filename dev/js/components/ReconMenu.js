@@ -33,8 +33,7 @@ export default class ReconMenu extends React.Component {
         <DropDownMenu
           value={this.state.value}
           onChange={this.handleChange}
-          style={styles.customWidth}
-          autoWidth={false}
+          style={styles.customWidth} labelStyle={{color:'white'}}
         >
           <MenuItem value={1} primaryText="Recon" />
           <MenuItem value={2} primaryText="Every Night" />
