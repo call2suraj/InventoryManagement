@@ -1,22 +1,10 @@
 import React, { Component } from 'react';
-
-
-
 import Shrink from '../containers/EditShrinkProvision';
-
-// import { MuiDataTable } from 'mui-data-table';
-// import SelectField from 'material-ui/SelectField';
 import RaisedButton from 'material-ui/RaisedButton';
 import { Card, CardActions, CardHeader, CardText } from 'material-ui/Card';
 import TextField from 'material-ui/TextField';
-// import AddLine from '../containers/AddLine';
-// import {orange500, blue500,gray500} from 'material-ui/styles/colors';
-// import Ionicon from 'react-ionicons';
 import SelectCountry from '../components/SelectCountry';
 import SelectBanner from '../components/SelectBanner';
-
-
-
 const ReactDOM = require('react-dom')
 const getMuiTheme = require('material-ui/styles/getMuiTheme').default
 const baseTheme = require('material-ui/styles/baseThemes/darkBaseTheme')

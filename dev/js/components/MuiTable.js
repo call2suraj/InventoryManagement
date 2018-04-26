@@ -33,7 +33,7 @@ const config = {
   enableSelectAll:false,
   columns: [
 
-    { property: 'Recon', title: 'Recon' },
+    { property: 'Recon', title: 'Recon'},
     { property: 'Banner', title: 'Banner' },
     { property: 'Method', title: 'Method' },
     { property: 'Tolerance', title: 'Tolerance Amount' },

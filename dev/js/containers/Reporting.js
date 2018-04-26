@@ -1,13 +1,8 @@
 import React, { Component } from 'react';
-// import { MuiDataTable } from 'mui-data-table';
-// import SelectField from 'material-ui/SelectField';
 import RaisedButton from 'material-ui/RaisedButton';
 import { Card, CardActions, CardHeader, CardText } from 'material-ui/Card';
 import TextField from 'material-ui/TextField';
-// import AddLine from '../containers/AddLine';
 import Ionicon from 'react-ionicons';
-// import {orange500, blue500,gray500} from 'material-ui/styles/colors';
-// import Ionicon from 'react-ionicons';
 import SelectCountry from '../components/SelectCountry';
 import SelectBanner from '../components/SelectBanner';
 
@@ -30,7 +25,7 @@ const headers = [
   { value: 'Status', type: 'Toggle', width: 100 },
   { value: 'Delete', type: 'ReadOnly', width: 40 }
 ]
-//const rows = []
+
 let rows = [
   {"columns":[{"value":"Ho Journal","selected":true,"rowId":1,"id":0,"width":200,color:'blue' },
   {"value":"Ho Office Journal","selected":true,"rowId":1,"id":1,"width":200},
@@ -68,25 +63,18 @@ const onChange = (row) => {
   console.log("------" + JSON.stringify(row));
   if(rows.id > 2){
     rows.push(row);
-    
   }
- 
 }
 
 
 class Reporting extends Component {
-   
   render() {
-
     return (
-
       <div>
-
           <div style={{display:'flex', alignContent:'right', height:80}}>
             <Ionicon icon="md-print" style={{paddingTop:15, marginLeft: 1500, marginRight: 5, 
             alignContent:'right', paddingRight:21, }} 
                      fontSize="25px" onClick={this.handleOpen} color="#00bcd4"/>
-           
           </div>
 
         <MuiThemeProvider>
