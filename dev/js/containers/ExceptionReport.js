@@ -27,7 +27,7 @@ document.body.appendChild(container1)
 const headers = [
     { value: 'Country', type: 'TextField', width: 200 },
     { value: 'Banner', type: 'TextField', width: 200 },
-    { value: 'Dept', type: 'TextField', width: 200 },
+    { value: 'Deptartment', type: 'TextField', width: 200 },
     { value: 'Cost Percent', type: 'TextField', width: 200 },
     { value: 'Retail Percent', type: 'TextField', width: 200 },
     { value: 'Active', type: 'Toggle', width: 200 },

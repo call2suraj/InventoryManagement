@@ -31,12 +31,17 @@ export default class ReportMenu extends React.Component {
     console.log(this.state.value);
     if(value=='reporting'){
       console.log("inside if");
-      ReactDOM.render(<Reporting />, document.getElementById('container'));
+      //ReactDOM.render(<Reporting />, document.getElementById('container'));
       this.setState({value:'reporting'});
     }
     if(value=='exception'){
       console.log("inside if");
       ReactDOM.render(<ExceptionReport />, document.getElementById('container'));
+      this.setState({value:'reporting'});
+    }
+    if(value=='ereport'){
+      console.log("inside if");
+      ReactDOM.render(<Reporting />, document.getElementById('container'));
       this.setState({value:'reporting'});
     }
     this.setState({value:'reporting'});
@@ -56,7 +61,7 @@ export default class ReportMenu extends React.Component {
           <MenuItem value={1} primaryText="Line Schedule" />
           <MenuItem value={2} primaryText="Security" />
           <MenuItem value={3} primaryText="Department" />
-          <MenuItem value={4} primaryText="Crew" />
+          <MenuItem value={'ereport'} primaryText="Exception Reporting" />
           <MenuItem value={5} primaryText="Country" />
 
           <MenuItem value={6} primaryText="Shrink Provision Banner" />
