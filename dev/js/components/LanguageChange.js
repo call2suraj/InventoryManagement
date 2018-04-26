@@ -1,10 +1,13 @@
 import React from 'react';
+import ReactDOM from 'react-dom';
 import RaisedButton from 'material-ui/RaisedButton';
 import Popover from 'material-ui/Popover';
 import Menu from 'material-ui/Menu';
 import MenuItem from 'material-ui/MenuItem';
 import Ionicon from 'react-ionicons';
-import { FlagIcon } from "react-flag-kit";
+import LocalizedStrings from 'react-localization';
+import App from '../components/App';
+import UserLogin from '../containers/UserLogin';
 import {
   Icon_Flag_BG,
   Icon_Flag_US,
@@ -14,18 +17,47 @@ import {
   Icon_Flag_DE,
   Icon_Flag_MX
 } from 'material-ui-country-flags';
-export default class LanguageChange extends React.Component {
 
+let strings = new LocalizedStrings({
+  en:{
+    how:"How do you want your egg today?",
+  },
+  it: {
+    how:"Come vuoi il tuo uovo oggi?",
+  }
+});
+
+export default class LanguageChange extends React.Component {
   constructor(props) {
     super(props);
-
     this.state = {
       open: false,
+      languageChoice:'en'
     };
-      this.handleClick = this.handleClick.bind(this);
-      this.handleRequestClose = this.handleRequestClose.bind(this);
+    this.handleClick = this.handleClick.bind(this);
+    this.handleRequestClose = this.handleRequestClose.bind(this);
+    this.onSetLanguageToItalian = this.onSetLanguageToItalian.bind(this);
+    this.onSetLanguageToEnglish = this.onSetLanguageToEnglish.bind(this);
+    this.onSetLanguageToIndian = this.onSetLanguageToIndian.bind(this);
+
   }
 
+  onSetLanguageToItalian (){
+    ReactDOM.render(<App locale="it"/>, document.getElementById('root'));
+    strings.setLanguage('it');
+    this.handleRequestClose();
+  }
+  onSetLanguageToEnglish (){
+    ReactDOM.render(<App locale="en"/>, document.getElementById('root'));
+    strings.setLanguage('en');
+    this.handleRequestClose();
+  }
+
+  onSetLanguageToIndian(){
+    ReactDOM.render(<App locale="in"/>, document.getElementById('root'));
+    strings.setLanguage('in');
+    this.handleRequestClose();
+  }
   handleClick (event)  {
     // This prevents ghost click.
     event.preventDefault();
@@ -34,6 +66,7 @@ export default class LanguageChange extends React.Component {
       open: true,
       anchorEl: event.currentTarget,
     });
+
   };
 
   handleRequestClose () {
@@ -45,8 +78,6 @@ export default class LanguageChange extends React.Component {
   render() {
     return (
       <div>
-
-
           <Ionicon icon="md-settings" style={{paddingTop:15, marginRight: 11}} fontSize="25px" onClick={this.handleClick} color="white"/>
         <Popover
           open={this.state.open}
@@ -56,13 +87,12 @@ export default class LanguageChange extends React.Component {
           onRequestClose={this.handleRequestClose}
         >
           <Menu>
-            <MenuItem primaryText="English-US" leftIcon={<Icon_Flag_US />}/>
-            <MenuItem primaryText="Spanish-Argentina" leftIcon={<Icon_Flag_BG />}/>
+            <MenuItem primaryText="English-US" leftIcon={<Icon_Flag_US />} onClick={this.onSetLanguageToEnglish}/>
+            <MenuItem primaryText="Spanish-Argentina" leftIcon={<Icon_Flag_BG />} onClick={this.onSetLanguageToItalian}/>
             <MenuItem primaryText="French-Canada" leftIcon={<Icon_Flag_CA />}/>
             <MenuItem primaryText="Spanish-Costa Rica" leftIcon={<Icon_Flag_DE />}/>
             <MenuItem primaryText="Spanish-France" leftIcon={<Icon_Flag_FR />}/>
-            
-            <MenuItem primaryText="India" leftIcon={<Icon_Flag_IN />}/>
+            <MenuItem primaryText="India" leftIcon={<Icon_Flag_IN />} onClick={this.onSetLanguageToIndian}/>
           </Menu>
         </Popover>
       </div>

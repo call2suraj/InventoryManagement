@@ -1,7 +1,10 @@
 import React from 'react';
 import DropDownMenu from 'material-ui/DropDownMenu';
 import MenuItem from 'material-ui/MenuItem';
-
+import ReactDOM from 'react-dom';
+import ReconLineConfig from '../containers/ReconLineConfig';
+import ShrinkProvision from '../containers/ShrinkProvision';
+import ProfileConfig from '../containers/ProfileConfig';
 const styles = {
   customWidth: {
     width: 190,
@@ -16,17 +19,31 @@ const styles = {
 };
 
 export default class ConfigureMenu extends React.Component {
-
   constructor(props) {
     super(props);
     this.state = {value: 0};
-
+    this.handleChange = this.handleChange.bind(this);
   }
 
   handleChange (event, index, value) {
-
     this.setState({value});
     console.log(this.state.value);
+    if(value=='line'){
+      console.log("inside if");
+      ReactDOM.render(<ReconLineConfig />, document.getElementById('container'));
+      this.setState({value:0});
+    }
+    if(value=='shrink'){
+      console.log("inside if");
+      ReactDOM.render(<ShrinkProvision />, document.getElementById('container'));
+      this.setState({value:0});
+    }
+    if(value=='crew'){
+      console.log("inside if");
+      ReactDOM.render(<ProfileConfig />, document.getElementById('container'));
+      this.setState({value:0});
+    }
+    this.setState({value:0});
   }
 
   render() {
@@ -40,13 +57,12 @@ export default class ConfigureMenu extends React.Component {
           autoWidth={false}
         >
         <MenuItem  value={0} primaryText="Configuration"/>
-          <MenuItem value={1} primaryText="Line" />
+          <MenuItem value={'line'} primaryText="Line" />
           <MenuItem value={2} primaryText="Security" />
           <MenuItem value={3} primaryText="Department" />
-          <MenuItem value={4} primaryText="Crew" />
+          <MenuItem value={'crew'} primaryText="Crew" />
           <MenuItem value={5} primaryText="Country" />
-
-          <MenuItem value={6} primaryText="Shrink Provision" />
+          <MenuItem value={"shrink"} primaryText="Shrink Provision" />
           <MenuItem value={7} primaryText="Email Template" />
           <MenuItem value={8} primaryText="Line Schedule" />
         </DropDownMenu>

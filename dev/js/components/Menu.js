@@ -22,6 +22,7 @@ export default class Menus extends React.Component {
 
     this.setState({value});
     console.log(this.state.value);
+      this.setState({value:1});
   }
 
   render() {

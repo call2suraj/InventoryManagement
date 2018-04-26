@@ -7,6 +7,11 @@ import AppBar from 'material-ui/AppBar';
 import RaisedButton from 'material-ui/RaisedButton';
 import Checkbox from 'material-ui/Checkbox';
 import TextField from 'material-ui/TextField';
+import LocalizedStrings from 'react-localization';
+import ReactDOM from 'react-dom';
+import Landing from './LandingPage';
+import Login from '../containers/Login';
+import App from '../components/App';
 
 const styles = {
   block: {
@@ -18,7 +23,40 @@ const styles = {
     color:'white',
     borderColor:'green'
   },
+
 };
+
+let strings = new LocalizedStrings({
+  en:{
+    Login:"Login",
+    UserName:'User Name',
+    Password:'Password',
+    Domain:'Domain',
+    Remember:'Remember Me',
+    Enter:'Enter your Username',
+    EnterPwd:'Enter your Password'
+  },
+  it: {
+    Login:"El login",
+    UserName:'Usuario',
+    Password:'Contraseña',
+    Domain:'Dominio',
+    Remember:'Recuérdame',
+    Enter:'Inserisci il tuo nome utente',
+    EnterPwd:'Inserisci la tua password'
+  },
+  in:{
+    Login:"लॉग इन करें",
+    UserName:'प्रयोक्ता नाम',
+    Password:'पारण शब्द',
+    Domain:'डोमेन',
+    Remember:'याद है',
+    Enter:'अपने उपयोगकर्ता नाम दर्ज करें',
+    EnterPwd:'अपना पासवर्ड डालें'
+  }
+});
+
+
 class UserLogin extends Component {
 constructor(props){
   super(props);
@@ -26,78 +64,142 @@ constructor(props){
     username:'',
     password:'',
     value: 1,
+    code:'en',
+    errorText: '',
+    errorText1: ''
   }
     this.handleChange = this.handleChange.bind(this);
+    this.returnDomain = this.returnDomain.bind(this);
+
  }
+
+
+
+  onSetLanguageToItalian (){
+  let code = this.props.locale || this.state.code
+    strings.setLanguage(code);
+  }
 
    handleChange (event, index, value){
      this.setState({value});
    }
 
+  handleClick(event){
+    this.setState({ errorText: '', errorText1: ''})
+    console.log(this.state.username);
+    console.log(this.state.password);
 
+
+    if(this.state.username ==='ninja' && this.state.password ==='ninja'){
+      ReactDOM.render(<App username="ninja" />, document.getElementById('root'));
+    }else{
+
+      if(this.state.username =='' ){
+        this.setState({ errorText1: 'Invalid value' })
+
+      }
+      if( this.state.password==''){
+        this.setState({ errorText: 'Invalid value' })
+
+      }
+      if(this.state.username !='' && this.state.password !=''){
+        this.setState({ errorText: 'Invalid User Name or Password' })
+      }
+
+    }
+  }
+returnDomain(){
+     if(this.props.locale =='en'){
+       return(<SelectField
+         floatingLabelText={strings.Domain}
+         value={this.state.value}
+         onChange={this.handleChange} style={{width:460, fontSize:'20'}}
+       >
+         <MenuItem value={1} primaryText="AR" />
+         <MenuItem value={2} primaryText="BR" />
+         <MenuItem value={3} primaryText="CA" />
+         <MenuItem value={4} primaryText="CN" />
+         <MenuItem value={5} primaryText="CR" />
+         <MenuItem value={6} primaryText="GT" />
+         <MenuItem value={7} primaryText="HN" />
+         <MenuItem value={8} primaryText="HomeOffice" />
+         <MenuItem value={9} primaryText="IN" />
+         <MenuItem value={10} primaryText="JP" />
+         <MenuItem value={11} primaryText="K2" />
+         <MenuItem value={12} primaryText="MX" />
+       </SelectField>);
+     }
+  if(this.props.locale =='it'){
+    return(<SelectField
+      floatingLabelText={strings.Domain}
+      value={this.state.value}
+      onChange={this.handleChange} style={{width:460, fontSize:'20'}}
+    >
+      <MenuItem value={1} primaryText="Toronto" />
+      <MenuItem value={2} primaryText="Rome" />
+      <MenuItem value={3} primaryText="Paris" />
+    </SelectField>);
+  }
+  if(this.props.locale =='in'){
+    return(<SelectField
+      floatingLabelText={strings.Domain}
+      value={this.state.value}
+      onChange={this.handleChange} style={{width:460, fontSize:'20'}}
+    >
+      <MenuItem value={1} primaryText="दिल्ली" />
+      <MenuItem value={2} primaryText="बैंगलोर" />
+      <MenuItem value={3} primaryText="हैदराबाद" />
+    </SelectField>);
+  }
+}
 render() {
     return (
-      <div style={{textAlign:'left', backgroundColor:'whitesmoke',
-        borderWidth:1,width:620,height:400, borderRadius: '16px'}}>
+      <div>
 
-        <MuiThemeProvider>
-          <div style={{marginLeft:2}}>
-            <h2 style={{marginLeft:22,paddingTop:15}}>Login</h2>
-            <Divider style={{margin:5}}/>
+        <img src='../inventory.png' height="100" width="100" style={{marginLeft:600}}/><br/>
+        <text style={{marginLeft:560, fontSize:22,color:'#546596'}}>Global Inventory System</text>
+        <div style={{textAlign:'left', backgroundColor:'whitesmoke',
+          borderWidth:1,width:620,height:400, borderRadius: '16px',marginLeft:'350'}} onload={this.onSetLanguageToItalian()}>
 
-            <div style={{marginLeft:22 }}>
-              <TextField
-                hintText="Enter your Username"
-                floatingLabelText="Username" style={{width:460}}
-                onChange = {(event,newValue) => this.setState({username:newValue})}
+          <div>
+            <div style={{marginLeft:2}}>
+              <h2 style={{marginLeft:20,paddingTop:5}}> {strings.Login}</h2>
+              <Divider style={{margin:5}}/>
+
+              <div style={{marginLeft:22 }}>
+                <TextField
+                  hintText={strings.Enter} errorText= {this.state.errorText1}
+                  floatingLabelText={strings.UserName} style={{width:460}}
+                  onChange = {(event,newValue) => this.setState({username:newValue})}
                 />
-              <br/>
+                <br/>
                 <TextField
                   type="password"
-                  hintText="Enter your Password" style={{width:460}}
-                  floatingLabelText="Password"
+                  hintText={strings.EnterPwd} style={{width:460}} errorText= {this.state.errorText}
+                  floatingLabelText={strings.Password}
                   onChange = {(event,newValue) => this.setState({password:newValue})}
-                  />
+                />
                 <br/>
-                <SelectField
-                  floatingLabelText="Domain"
-                  value={this.state.value}
-                  onChange={this.handleChange} style={{width:460}}
-                >
-                    <MenuItem value={1} primaryText="AR" />
-                    <MenuItem value={2} primaryText="BR" />
-                    <MenuItem value={3} primaryText="CA" />
-                    <MenuItem value={4} primaryText="CN" />
-                    <MenuItem value={5} primaryText="CR" />
+                {this.returnDomain()}
 
-
-                    <MenuItem value={6} primaryText="GT" />
-                    <MenuItem value={7} primaryText="HN" />
-                    <MenuItem value={8} primaryText="HomeOffice" />
-                    <MenuItem value={9} primaryText="IN" />
-                    <MenuItem value={10} primaryText="JP" />
-                    <MenuItem value={11} primaryText="K2" />
-                    <MenuItem value={12} primaryText="MX" />
-                </SelectField>
                 <Checkbox
-                          label="Remember Me"
-                          style={styles.checkbox} 
-                        />
-
-                <div style={{marginTop:15, textAlign:'center' }}>
-                  <RaisedButton label="Login" primary={true} style={{ width:330, }}
-                  onClick={(event) => this.handleClick(event)}/>
+                  label={strings.Remember}
+                  style={styles.checkbox}
+                />
+                <div style={{marginTop:30, textAlign:'center' }}>
+                  <RaisedButton label={strings.Login} primary={true} style={{ width:330, }}
+                                onClick={(event) => this.handleClick(event)}/>
                 </div>
 
-
                 <br/>
                 <br/>
 
+              </div>
             </div>
-
-         </div>
-         </MuiThemeProvider>
+          </div>
+        </div>
       </div>
+
     );
   }
 }

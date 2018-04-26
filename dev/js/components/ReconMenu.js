@@ -1,6 +1,9 @@
 import React from 'react';
 import DropDownMenu from 'material-ui/DropDownMenu';
 import MenuItem from 'material-ui/MenuItem';
+import Reconsillation from '../containers/Reconsiliation';
+import MuiTable from './MuiTable';
+import ReactDOM from 'react-dom';
 
 const styles = {
   customWidth: {
@@ -16,14 +19,25 @@ export default class ReconMenu extends React.Component {
 
   constructor(props) {
     super(props);
-    this.state = {value: 1};
+    this.state = {value: 'recon'};
     this.handleChange = this.handleChange.bind(this);
   }
 
   handleChange (event, index, value) {
-
+    console.log("inside handleChange");
     this.setState({value});
     console.log(this.state.value);
+    if(value=='config'){
+      console.log("inside if");
+      ReactDOM.render(<MuiTable />, document.getElementById('container'));
+      this.setState({value:'recon'});
+    }
+    if(value=='reconsiliation'){
+      console.log("inside if");
+      ReactDOM.render(<Reconsillation />, document.getElementById('container'));
+      this.setState({value:'recon'});
+    }
+    this.setState({value:'recon'});
   }
 
   render() {
@@ -35,11 +49,11 @@ export default class ReconMenu extends React.Component {
           onChange={this.handleChange}
           style={styles.customWidth} labelStyle={{color:'white'}}
         >
-          <MenuItem value={1} primaryText="Recon" />
-          <MenuItem value={2} primaryText="Every Night" />
-          <MenuItem value={3} primaryText="Weeknights" />
-          <MenuItem value={4} primaryText="Weekends" />
-          <MenuItem value={5} primaryText="Weekly" />
+          <MenuItem value={"recon"} primaryText="Recon" label="Recon" />
+          <MenuItem value={"config"} primaryText="Recon Line Configuration" />
+          <MenuItem value={"line"} primaryText="Add Line" />
+          <MenuItem value={"details"} primaryText="Recon Details" />
+          <MenuItem value={"reconsiliation"} primaryText="Reconsiliation" />
         </DropDownMenu>
       </div>
     );

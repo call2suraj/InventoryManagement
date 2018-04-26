@@ -1,21 +1,55 @@
 import React, {Component} from 'react';
-import {connect} from 'react-redux';
-import AppBar from 'material-ui/AppBar';
-
-
+import Ionicon from 'react-ionicons';
+import Dialog from 'material-ui/Dialog';
+import FlatButton from 'material-ui/FlatButton';
+import RaisedButton from 'material-ui/RaisedButton';
+import AddLinePopup from '../components/AddLinePopup';
 class AddLine extends Component {
+
+  constructor(props) {
+    super(props);
+    this.state = {
+      open: false,
+    };
+    this.handleOpen = this.handleOpen.bind(this);
+    this.handleClose = this.handleClose.bind(this);
+  }
+
+  handleOpen () {
+    this.setState({open: true});
+  };
+
+  handleClose () {
+    this.setState({open: false});
+  };
+
     render() {
-
+      const actions = [
+        <FlatButton
+          label="Cancel"
+          primary={true}
+          onClick={this.handleClose}
+        />,
+        <FlatButton
+          label="Submit"
+          primary={true}
+          onClick={this.handleClose}
+        />,
+      ];
         return (
-            <div>
-
-<h3>AddLine Page</h3>
-
-            </div>
+          <div >
+            <Ionicon icon="ios-add-circle" style={{paddingTop:15, marginRight: 5, alignContent:'right', paddingRight:21}}
+                     fontSize="25px" onClick={this.handleOpen} color="#00bcd4"/>
+            <Dialog
+              actions={actions}
+              modal={true}
+              open={this.state.open}
+            >
+             <AddLinePopup />
+            </Dialog>
+          </div>
         );
     }
 }
-
-
 
 export default AddLine;

@@ -1,29 +1,62 @@
-import React from 'react';
-//import UserList from '../containers/user-list';
-//import UserDetails from '../containers/user-detail';
+import React, {Component} from 'react';
 import Login from '../containers/Login';
-import AppBar from 'material-ui/AppBar';
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
 import Header from '../components/Header';
+import AddLine from '../containers/AddLine';
 import UserLogin from '../containers/UserLogin';
-
-
+import LocalizedStrings from 'react-localization';
+import TableComponent from './TableComponent';
+import ReactTables from './ReactTables';
+import BootStrapTableExample from './BootStrapTableExample';
+import Landing from '../containers/LandingPage';
 require('../../scss/style.scss');
 
-const App = () => (
+let strings = new LocalizedStrings({
+  en:{
+    how:"How do you want your egg today?",
+  },
+  it: {
+    how:"Come vuoi il tuo uovo oggi?",
+  }
+});
+
+class App extends Component {
+
+  constructor(props){
+    super(props);
+    this.state={
+      code:'en',
+      username:'',
+      password:'',
+    }
+    this.onSetLanguage = this.onSetLanguage.bind(this);
+  }
+
+  onSetLanguage (){
+    let code = this.props.locale || this.state.code
+    strings.setLanguage(code);
+  }
 
 
-  <MuiThemeProvider>
-  <div>
-      <Header />
-      <div style={{ position: 'fixed',display: 'flex',marginLeft:'480',marginTop:'100', borderWidth:1,}}>
-        <Login/>
+  render() {
+    this.onSetLanguage();
+    return (
+      <MuiThemeProvider >
+        <div >
 
-      </div>
+          {this.props.username ? <Header username={this.props.username} password={this.state.password}/>:<Header username={this.state.username} password={this.state.password}/>}
+          <div id='container' style={{ position: 'center',display: 'flex',marginLeft:'65',marginTop:'10', borderWidth:1,}}>
+            {this.props.username == null ? <UserLogin locale={this.props.locale || 'en'} /> : <Landing />}
 
-  </div>
- </MuiThemeProvider>
-
-);
+            {/*<Login locale={this.props.locale}/>*/}
+            {/*<ReactTables />*/}
+            {/*<TableComponent />*/}
+            {/*<BootStrapTableExample/>*/}
+          </div>
+        </div>
+      </MuiThemeProvider>
+    );
+  }
+}
 
 export default App;

@@ -3,17 +3,17 @@ import {connect} from 'react-redux';
 import AppBar from 'material-ui/AppBar';
 
 
-class Reporting extends Component {
+class Reconsiliation extends Component {
   render() {
 
     return (
       <div>
 
-        <h3>Reporting Popup. This will be done by Sethu</h3>
+        <h3>Reconsiliation Page. This will be done by Abdul</h3>
 
       </div>
     );
   }
 }
 
-export default Reporting;
+export default Reconsiliation;
