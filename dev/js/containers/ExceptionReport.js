@@ -61,7 +61,10 @@ const rows = [
 
 const onChange = (row) => {
     console.log("------" + JSON.stringify(row));
-    rows.push(row);
+    if(rows.id > 1){
+        rows.push(row);
+        
+      }
 }
 
 
