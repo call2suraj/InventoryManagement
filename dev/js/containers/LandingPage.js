@@ -134,11 +134,18 @@ class LandingPage extends Component {
                   <CardText >
                     Number of Inventories
                   </CardText>
-                  <Badge
+                  {this.state.values == 'US-Walmart' ? <Badge
                     badgeContent={1} badgeStyle={{backgroundColor:'gray'}}
                     primary={true} style={{paddingLeft:250, paddingTop:5, marginTop:10}}
                   >
                   </Badge>
+                    :  <Badge
+                      badgeContent={2} badgeStyle={{backgroundColor:'gray'}}
+                      primary={true} style={{paddingLeft:250, paddingTop:5, marginTop:10}}
+                    >
+                    </Badge>
+                  }
+
                 </div>
               </Card>
 
@@ -147,11 +154,21 @@ class LandingPage extends Component {
                   <CardText >
                     Number of Inventories
                   </CardText>
-                  <Badge
-                    badgeContent={3} badgeStyle={{backgroundColor:'green'}}
-                    primary={true} style={{paddingLeft:250, paddingTop:5, marginTop:10}}
-                  >
-                  </Badge>
+
+                  {this.state.values == 'Virginia Andrews' ? <Badge
+                      badgeContent={7} badgeStyle={{backgroundColor:'green'}}
+                      primary={true} style={{paddingLeft:250, paddingTop:5, marginTop:10}}
+                    >
+                    </Badge>
+                    :   <Badge
+                      badgeContent={3} badgeStyle={{backgroundColor:'green'}}
+                      primary={true} style={{paddingLeft:250, paddingTop:5, marginTop:10}}
+                    >
+                    </Badge>
+                  }
+
+
+
                 </div>
               </Card>
 
@@ -160,11 +177,19 @@ class LandingPage extends Component {
                   <CardText >
                     Number of Inventories
                   </CardText>
-                  <Badge
-                    badgeContent={2}
-                    secondary={true} style={{paddingLeft:250, paddingTop:5, marginTop:10}}
-                  >
-                  </Badge>
+                  {this.state.values == 'US-Super Ahorros' ? <Badge
+                      badgeContent={5}
+                      secondary={true} style={{paddingLeft:250, paddingTop:5, marginTop:10}}
+                    >
+                    </Badge>
+                    :   <Badge
+                      badgeContent={2}
+                      secondary={true} style={{paddingLeft:250, paddingTop:5, marginTop:10}}
+                    >
+                    </Badge>
+                  }
+
+
                 </div>
               </Card>
 
