@@ -87,12 +87,10 @@ class ProfileConfig extends Component {
   render() {
     const { values } = this.state;
     return (
-
-
       <MuiThemeProvider  >
         <div >
-          <div style={{ marginLeft: 170, border: '1px solid gray' }}>
-            <text style={{ margin: 15, paddingTop: 15, fontSize: 20, color: '#00bcd4' }}>Profile Configurations</text>
+          <Card style={{width:1200, marginLeft: 250, alignItems: 'center' }}>
+            <text style={{ margin: 15, marginTop:10, paddingTop: 15, fontSize: 20, color: '#00bcd4' }}>Profile Configurations</text>
             <Divider style={{ margin: 5, display: 'flex', marginTop: 10, marginBottom: 10, }} />
             <div style={{ display: 'flex', marginLeft: 125, marginTop: 20, width: '600' }}>
               <div style={{ width: 80, textAlign: 'right' }}><br />
@@ -100,13 +98,11 @@ class ProfileConfig extends Component {
               </div>
               <div >
                 <TextField style={{ marginLeft: 22, width: 500 }}
-                  disabled={true}
-                  defaultValue="Global"
+                           disabled={true}
+                           defaultValue="Global"
                 />
               </div>
             </div>
-
-
 
             <div style={{ display: 'flex', border: 2, borderColor: 'red' }}>
               <div style={{ width: 200, textAlign: 'right' }}><br />
@@ -142,7 +138,6 @@ class ProfileConfig extends Component {
               </div>
             </div>
 
-
             <div style={{ display: 'flex' }}>
               <div style={{ width: 250, textAlign: 'right' }}>
                 <Checkbox
@@ -155,21 +150,16 @@ class ProfileConfig extends Component {
               </div>
             </div>
             <div style={{ marginTop: 30, marginBottom: 30, textAlign: 'center', }}>
-              <RaisedButton label="Save" primary={true} style={{ width: 330, }}
-                onClick={(event) => this.handleClick(event)} />
+              <RaisedButton label="Save" primary={true} style={{ width: 330, marginBottom: 30,}}
+                            onClick={(event) => this.handleClick(event)} />
             </div>
 
-          </div>
-          <div style={{ marginLeft: 170, marginTop: 15 }}>
+          </Card>
+          <div style={{ marginLeft: 250, marginTop: 15 }}>
             <ProfileTable />
           </div>
         </div>
       </MuiThemeProvider>
-
-
-
-
-
 
     );
   }

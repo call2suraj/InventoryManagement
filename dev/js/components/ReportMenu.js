@@ -58,15 +58,11 @@ export default class ReportMenu extends React.Component {
           autoWidth={false}
         >
         <MenuItem  value={'reporting'} primaryText="Reporting"/>
-          <MenuItem value={1} primaryText="Line Schedule" />
-          <MenuItem value={2} primaryText="Security" />
-          <MenuItem value={3} primaryText="Department" />
+          <MenuItem value={1} primaryText="Report Summary" />
+          <MenuItem value={2} primaryText="Security Reports" />
+          <MenuItem value={3} primaryText="Department Reports" />
           <MenuItem value={'ereport'} primaryText="Exception Reporting" />
-          <MenuItem value={5} primaryText="Country" />
-
-          <MenuItem value={6} primaryText="Shrink Provision Banner" />
-          <MenuItem value={7} primaryText="Email Template" />
-          <MenuItem value={8} primaryText="Line Schedule" />
+          <MenuItem value={5} primaryText="Inventory Reports" />
           <MenuItem value={'exception'} primaryText="Exception Management" />
         </DropDownMenu>
       </div>

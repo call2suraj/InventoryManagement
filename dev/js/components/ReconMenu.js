@@ -4,6 +4,7 @@ import MenuItem from 'material-ui/MenuItem';
 import Reconsillation from '../containers/Reconsiliation';
 import MuiTable from './MuiTable';
 import ReactDOM from 'react-dom';
+import AddLineLanding from '../containers/AddLineLanding';
 
 const styles = {
   customWidth: {
@@ -35,6 +36,11 @@ export default class ReconMenu extends React.Component {
     if(value=='reconsiliation'){
       console.log("inside if");
       ReactDOM.render(<Reconsillation />, document.getElementById('container'));
+      this.setState({value:'recon'});
+    }
+    if(value=='line'){
+      console.log("inside if");
+      ReactDOM.render(<AddLineLanding />, document.getElementById('container'));
       this.setState({value:'recon'});
     }
     this.setState({value:'recon'});

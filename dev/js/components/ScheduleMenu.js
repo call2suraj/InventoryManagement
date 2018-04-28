@@ -55,10 +55,6 @@ export default class ScheduleMenu extends React.Component {
           <MenuItem value={3} primaryText="Department" />
           <MenuItem value={4} primaryText="Crew" />
           <MenuItem value={'schedule'} primaryText="Update Schedule" />
-
-          <MenuItem value={6} primaryText="Shrink Provision" />
-          <MenuItem value={7} primaryText="Email Template" />
-          <MenuItem value={8} primaryText="Line Schedule" />
         </DropDownMenu>
       </div>
     );

@@ -60,7 +60,7 @@ export default class ConfigureMenu extends React.Component {
           <MenuItem value={'line'} primaryText="Line" />
           <MenuItem value={2} primaryText="Security" />
           <MenuItem value={3} primaryText="Department" />
-          <MenuItem value={'crew'} primaryText="Crew" />
+          <MenuItem value={'crew'} primaryText="Profile Configuration" />
           <MenuItem value={5} primaryText="Country" />
           <MenuItem value={"shrink"} primaryText="Shrink Provision" />
           <MenuItem value={7} primaryText="Email Template" />
