@@ -84,6 +84,7 @@ export default class ShrinkProvision extends React.Component {
     ));
   }
   render() {
+    console.log("selected from country"+this.state.values);
     return (
       <MuiThemeProvider>
         <div style={{overflowY: 'scroll', height:740,marginRight:10}}>

@@ -95,11 +95,11 @@ constructor(props){
     }else{
 
       if(this.state.username =='' ){
-        this.setState({ errorText1: 'Invalid value' })
+        this.setState({ errorText1: 'Invalid user name' })
 
       }
       if( this.state.password==''){
-        this.setState({ errorText: 'Invalid value' })
+        this.setState({ errorText: 'Invalid password' })
 
       }
       if(this.state.username !='' && this.state.password !=''){
@@ -154,16 +154,16 @@ returnDomain(){
 }
 render() {
     return (
-      <div>
+      <div style={{textAlign:'center'}}>
 
-        <img src='../inventory.png' height="100" width="100" style={{marginLeft:600}}/><br/>
-        <text style={{marginLeft:560, fontSize:22,color:'#546596'}}>Global Inventory System</text>
+        <img src='../inventory.png' height="100" width="100" style={{marginLeft:400}}/><br/>
+        <text style={{marginLeft:450, fontSize:31,color:'#2a6595'}}>Global Inventory System</text>
         <div style={{textAlign:'left', backgroundColor:'whitesmoke',
-          borderWidth:1,width:620,height:400, borderRadius: '16px',marginLeft:'350'}} onload={this.onSetLanguageToItalian()}>
+          borderWidth:1,width:620,height:400, borderRadius: '16px',marginLeft:'450'}} onload={this.onSetLanguageToItalian()}>
 
-          <div>
+          <div >
             <div style={{marginLeft:2}}>
-              <h2 style={{marginLeft:20,paddingTop:5}}> {strings.Login}</h2>
+              <h2 style={{marginLeft:20,paddingTop:5,}}> {strings.Login}</h2>
               <Divider style={{margin:5}}/>
 
               <div style={{marginLeft:22 }}>

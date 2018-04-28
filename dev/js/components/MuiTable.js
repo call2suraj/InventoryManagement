@@ -51,7 +51,8 @@ export default class MuiTable extends React.Component {
     return (
       <MuiThemeProvider>
         <div style={{overflowY: 'scroll', height:500,marginRight:10}}>
-          <div style={{textAlign:'right', marginRight:10}}>
+          <div style={{textAlign:'left', marginRight:10, marginBottom:15}}>
+          
             <AddLine />
           </div>
 

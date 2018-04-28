@@ -38,7 +38,8 @@ class AddLine extends Component {
       ];
         return (
           <div >
-            <Ionicon icon="ios-add-circle" style={{paddingTop:15, marginRight: 5, alignContent:'right', paddingRight:21}}
+            <text style={{fontSize: 20, color: '#00bcd4' ,paddingTop:10, paddingBottom:10, marginBottom: 15, alignItems:'left', paddingRight:21}}>Recon Line Config</text>
+            <Ionicon icon="ios-add-circle" style={{marginLeft: 1345, paddingTop:20, alignContent: 'right'}}
                      fontSize="25px" onClick={this.handleOpen} color="#00bcd4"/>
             <Dialog
               actions={actions}
