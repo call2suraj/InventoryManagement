@@ -8,7 +8,7 @@ class Config extends Component {
         return (
             <div>
 
-                <h3>Config Page</h3>
+                <h3>Config Page Suraj</h3>
 
             </div>
         );

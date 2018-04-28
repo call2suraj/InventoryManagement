@@ -159,7 +159,7 @@ render() {
         <img src='../inventory.png' height="100" width="100" style={{marginLeft:400}}/><br/>
         <text style={{marginLeft:450, fontSize:31,color:'#2a6595'}}>Global Inventory System</text>
         <div style={{textAlign:'left', backgroundColor:'whitesmoke',
-          borderWidth:1,width:620,height:400, borderRadius: '16px',marginLeft:'450'}} onload={this.onSetLanguageToItalian()}>
+          borderWidth:1,width:620,height:450, borderRadius: '16px',marginLeft:'450'}} onload={this.onSetLanguageToItalian()}>
 
           <div >
             <div style={{marginLeft:2}}>

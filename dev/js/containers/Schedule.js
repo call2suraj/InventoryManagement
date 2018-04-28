@@ -9,7 +9,7 @@ class Schedule extends Component {
     return (
       <div>
 
-        <h3>Inventory Schedule Page. This will be done by Harsha</h3>
+        <h3>Inventory Schedule Page. This will be done by Abdul</h3>
 
       </div>
     );
