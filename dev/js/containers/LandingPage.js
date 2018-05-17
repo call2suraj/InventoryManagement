@@ -8,7 +8,7 @@ import DatePicker from 'material-ui/DatePicker';
 import Landing from '../containers/LandingPage';
 import Badge from 'material-ui/Badge';
 import SpikeChart from '../components/SpikeChart';
-
+import LocalizedStrings from 'react-localization';
 import areIntlLocalesSupported from 'intl-locales-supported';
 //import persianUtils from 'material-ui-persian-date-picker-utils';
 
@@ -34,7 +34,7 @@ const data = [
   { name: 'Inv A', uv: 400, pv: 200, amt: 100 },
   { name: 'Inv B', uv: 300, pv: 198, amt: 210 },
   { name: 'Inv C', uv: 200, pv: 750, amt: 130 },
-  { name: 'Inv D', uv: 280, pv: 250, amt: 145 },
+  { name: 'Inv D', uv: 280, pv: 210, amt: 145 },
   { name: 'Inv E', uv: 190, pv: 300, amt: 66 },
   
 ];
@@ -48,6 +48,32 @@ if (areIntlLocalesSupported(['fr', 'fa-IR'])) {
   require('intl/locale-data/jsonp/fa-IR');
 }
 
+
+let strings = new LocalizedStrings({
+  en:{
+    Country:"Country",
+    Banner:'Banner',
+    FromDate:'From Inventory Date',
+    ToDate:'To Inventory Date',
+   
+  },
+  it: {
+    Country:"nazione",
+    Banner:'bandiera',
+    FromDate:'Dalla data di inventario',
+    ToDate:'Alla data di inventario',
+    
+  },
+  in:{
+    Country:"देश",
+    Banner:'बैनर',
+    FromDate:'सूची तिथि से',
+    ToDate:'सूची तिथि के लिए',
+    
+  }
+});
+
+
 class LandingPage extends Component {
   constructor(props) {
     super(props);
@@ -60,7 +86,8 @@ class LandingPage extends Component {
     this.state = {
       values: [],
       minDate: minDate,
-      maxDate: maxDate
+      maxDate: maxDate,
+      code:'en',
     };
     this.handleChange = this.handleChange.bind(this);
     this.calendarSelect = this.calendarSelect.bind(this);
@@ -69,6 +96,10 @@ class LandingPage extends Component {
     
   }
 
+  onSetLanguageToItalian (){
+    let code = this.props.locale || this.state.code
+      strings.setLanguage(code);
+    }
 
   handleChange(event, index, values) {
     this.setState({ values });
@@ -88,7 +119,7 @@ class LandingPage extends Component {
 
   fromDate(){
     console.log("in fromdate "+ this.props.locale);
-    if(this.props.locale =='en'){
+    if(this.props.locale =='en' || this.props.locale == undefined|| this.props.locale == ''){
       return(<DatePicker textFieldStyle={{ width: 500 }} style={{ marginLeft: 22 }} onChange={this.calendarSelect}
         DateTimeFormat={DateTimeFormat}
         okLabel="OK"
@@ -102,11 +133,12 @@ class LandingPage extends Component {
         cancelLabel="Annuler"
         locale="fr"/>);
     }
+    
   }
 
   toDate(){
     console.log("in fromdate "+ this.props.locale);
-    if(this.props.locale =='en'){
+    if(this.props.locale =='en' || this.props.locale == undefined|| this.props.locale == ''){
       return(<DatePicker textFieldStyle={{ width: 500 }} style={{ marginLeft: 22 }} minDate={this.state.minDate}
         DateTimeFormat={DateTimeFormat}
         okLabel="OK"
@@ -136,12 +168,12 @@ class LandingPage extends Component {
       <MuiThemeProvider  >
         <div style={{ marginLeft: 10 , marginTop:10}}>
           <Card style={{ width: 1350 }}>
-            <div style={{ display: 'flex', marginLeft: 5 }}>
+            <div style={{ display: 'flex', marginLeft: 5 }} onload={this.onSetLanguageToItalian()}>
               {/* <Card style={{width:750}}> */}
               <div>
                 <div style={{ display: 'flex', border: 2, borderColor: 'red' }}>
                   <div style={{ width: 200, textAlign: 'right' }}><br />
-                    <text style={{ fontSize: 18, marginTop: 50, paddingTop: 10, textAlign: 'center' }}>Country : </text>
+                    <text style={{ fontSize: 18, marginTop: 50, paddingTop: 10, textAlign: 'center' }}>{strings.Country} : </text>
                   </div>
                   <div>
                     <SelectCountry />
@@ -150,7 +182,7 @@ class LandingPage extends Component {
 
                 <div style={{ display: 'flex' }}>
                   <div style={{ width: 200, textAlign: 'right' }}><br />
-                    <text style={{ fontSize: 18, marginTop: 40, paddingTop: 30 }}>Banner : </text>
+                    <text style={{ fontSize: 18, marginTop: 40, paddingTop: 30 }}>{strings.Banner} : </text>
                   </div>
                   <div>
                     <SelectField
@@ -166,7 +198,7 @@ class LandingPage extends Component {
 
                 <div style={{ display: 'flex' }}>
                   <div style={{ width: 200, textAlign: 'right' }}><br />
-                    <text style={{ fontSize: 18, marginTop: 40, paddingTop: 30 }}>From Inventory Date : </text>
+                    <text style={{ fontSize: 18, marginTop: 40, paddingTop: 30 }}>{strings.FromDate} : </text>
                   </div>
                   <div>
                     {/* <DatePicker textFieldStyle={{ width: 500 }} style={{ width: 800, marginLeft: 22 }} onChange={this.calendarSelect} /> */}
@@ -176,7 +208,7 @@ class LandingPage extends Component {
 
                 <div style={{ display: 'flex', marginTop: 5 }}>
                   <div style={{ width: 200, textAlign: 'right' }}><br />
-                    <text style={{ fontSize: 18, marginTop: 40, paddingTop: 30 }}>To Inventory Date : </text>
+                    <text style={{ fontSize: 18, marginTop: 40, paddingTop: 30 }}>{strings.ToDate} : </text>
                   </div>
                   <div>
                     {/* <DatePicker textFieldStyle={{ width: 500 }} style={{ marginLeft: 22 }} minDate={this.state.minDate}
