@@ -153,7 +153,9 @@ returnDomain(){
   }
 }
 render() {
+  console.log("language in UserLogin Page "+this.props.locale);
     return (
+      <MuiThemeProvider >
       <div style={{textAlign:'center'}}>
 
         <img src='../inventory.png' height="100" width="100" style={{marginLeft:400}}/><br/>
@@ -199,7 +201,7 @@ render() {
           </div>
         </div>
       </div>
-
+      </MuiThemeProvider >
     );
   }
 }

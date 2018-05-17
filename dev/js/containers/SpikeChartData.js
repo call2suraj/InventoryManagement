@@ -19,31 +19,44 @@ var sgTeams = [
   {country:'MX',banner:'SAMS',name: "SG-8", leader: "Yip", assignment: "Medical", members: 6},
   {country:'USA',banner:'HOMEOFFICE',name: "SG-9", leader: "Winters", assignment: "Diplomatic", members: 7},
   {country:'IN',banner:'WMT',name: "SG-10", leader: "Colville", assignment: "Military Exploration", members: 5},
-  {country:'USA',banner:'HOMEOFFICE',name: "SG-7", leader: "Isaacs", assignment: "Scientific", members: 6},
-  {country:'USA',banner:'WMT',name: "SG-8", leader: "Yip", assignment: "Medical", members: 6},
-  {country:'IN',banner:'WMT',name: "SG-9", leader: "Winters", assignment: "Diplomatic", members: 7},
-  {country:'UK',banner:'HOMEOFFICE',name: "SG-10", leader: "Colville", assignment: "Military Exploration", members: 5}
 ];
 
-export default class TableData extends Component {
+// var sgTeams = [
+//     { country:'USA',banner: 'Banner US', Stock: 4000, Store: 2400, amt: 24 },
+//     { country:'UK',banner: 'Banner UK', Stock: 3000, Store: 1398, amt: 22 },
+//     { country:'MX',banner: 'Banner MX', Stock: 2000, Store: 9800, amt: 20 },
+//     { country:'CA',banner: 'Banner CA', Stock: 2780, Store: 3908, amt: 11 },
+//     { country:'IN',banner: 'Banner IN', Stock: 1890, Store: 4800, amt: 81 },
+//     { country:'AU',banner: 'Banner AU', Stock: 2390, Store: 3800, amt: 25 },
+//     { country:'DM',banner: 'Banner DM', Stock: 3490, Store: 4300, amt: 10 },
+// ];
+
+
+
+export default class SpikeChartData extends Component {
 
   renderTable() {
     return (
       <Table className="table"
         filterable={['country','name','leader', 'assignment', 'members']}
         noDataText="No matching records found"
-        itemsPerPage={10}
+        itemsPerPage={5}
         currentPage={0}
         sortable={true}
         data={sgTeams} style={{backgroundColor:'white',textAlign:'left'}} >
         <Thead>
-        <Th column="country" style={{color:'white',height:35,width:200,backgroundColor:'#00bcd4'}}>Country</Th>
+        {/* <Th column="country" style={{color:'white',height:35,width:200,backgroundColor:'#00bcd4'}}>Country</Th>
         <Th column="banner" style={{color:'white',height:35,width:200,backgroundColor:'#00bcd4'}}>Banner</Th>
-        <Th column="name" style={{color:'white',height:35,width:200,backgroundColor:'#00bcd4'}}>Group Name</Th>
-        <Th column="leader" style={{color:'white',height:35,width:200,backgroundColor:'#00bcd4'}}>Leader</Th>
-        <Th column="assignment" style={{color:'white',height:35,width:200,backgroundColor:'#00bcd4'}}>Department</Th>
-        <Th column="members" style={{color:'white',height:35,width:200,backgroundColor:'#00bcd4'}}>Team Members</Th>
-
+        <Th column="Stock" style={{color:'white',height:35,width:200,backgroundColor:'#00bcd4'}}>Stock</Th>
+        <Th column="Store" style={{color:'white',height:35,width:200,backgroundColor:'#00bcd4'}}>Store</Th>
+        <Th column="amt" style={{color:'white',height:35,width:200,backgroundColor:'#00bcd4'}}>Department</Th> */}
+        
+            <Th column="country" style={{color:'white',height:35,width:200,backgroundColor:'#00bcd4'}}>Country</Th>
+            <Th column="banner" style={{color:'white',height:35,width:200,backgroundColor:'#00bcd4'}}>Banner</Th>
+            <Th column="name" style={{color:'white',height:35,width:200,backgroundColor:'#00bcd4'}}>Group Name</Th>
+            <Th column="leader" style={{color:'white',height:35,width:200,backgroundColor:'#00bcd4'}}>Leader</Th>
+            <Th column="assignment" style={{color:'white',height:35,width:200,backgroundColor:'#00bcd4'}}>Department</Th>
+            <Th column="members" style={{color:'white',height:35,width:200,backgroundColor:'#00bcd4'}}>Team Members</Th>
         </Thead>
 
       </Table>

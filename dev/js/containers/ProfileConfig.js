@@ -1,4 +1,10 @@
 import React, { Component } from 'react';
+
+
+import Dialog from 'material-ui/Dialog';
+import FlatButton from 'material-ui/FlatButton';
+
+
 import SelectField from 'material-ui/SelectField';
 import TextField from 'material-ui/TextField';
 import MenuItem from 'material-ui/MenuItem';
@@ -10,7 +16,9 @@ import Divider from 'material-ui/Divider';
 import RaisedButton from 'material-ui/RaisedButton';
 import DatePicker from 'material-ui/DatePicker';
 import ProfileTable from './ProfileTable';
+const EditTable = require('material-ui-table-edit')
 import Badge from 'material-ui/Badge';
+import Landing from './LandingPage';
 require('../../scss/style.scss');
 
 const names = [
@@ -37,6 +45,52 @@ const styles = {
   },
 
 };
+
+
+
+const headers = [
+  { value: 'Country', type: 'TextField', width: 300 },
+  { value: 'Banner', type: 'TextField', width: 300 },
+  { value: 'Active', type: 'Toggle', width: 300 },
+  { value: 'Delete', type: 'ReadOnly', width: 100 }
+]
+
+const rows = [
+  {
+    "columns": [
+      { "value": "USA", "selected": true, "rowId": 0, "id": 0, "width": 200 },
+      { "value": "Pali - Soft Discount", "selected": true, "rowId": 0, "id": 1, "width": 200 },
+      { "selected": false, "rowId": 0, "id": 2, "width": 40 }
+    ], "selected": false, "id": 3
+  },
+
+  {
+    "columns": [
+      { "value": "India", "selected": true, "rowId": 1, "id": 1, "width": 200 },
+      { "value": "IN-Wal-Mart", "selected": true, "rowId": 1, "id": 2, "width": 200 },
+      { "selected": true, "rowId": 1, "id": 3, "width": 40 }
+    ], "selected": false, "id": 4
+  },
+  {
+    "columns": [
+      { "value": "UK", "selected": true, "rowId": 2, "id": 0, "width": 200 },
+      { "value": "Pali - Soft Discount", "selected": true, "rowId": 2, "id": 1, "width": 200 },
+      { "selected": false, "rowId": 2, "id": 2, "width": 40 }
+    ], "selected": false, "id": 3
+  }
+
+]
+
+
+const onChange = (row) => {
+  console.log("------" + JSON.stringify(row));
+  if(rows.id > 1){
+    rows.push(row);
+
+  }
+}
+
+
 class ProfileConfig extends Component {
   constructor(props) {
     super(props);
@@ -47,23 +101,96 @@ class ProfileConfig extends Component {
     maxDate.setFullYear(maxDate.getFullYear() + 1);
     maxDate.setHours(0, 0, 0, 0);
     this.state = {
+      value: [],
       values: [],
       minDate: minDate,
-      maxDate: maxDate
+      maxDate: maxDate,
+      checked: false,
+      rows:rows,
+      open: false,
     };
     this.handleChange = this.handleChange.bind(this);
     this.handleChanges = this.handleChanges.bind(this);
     this.calendarSelect = this.calendarSelect.bind(this);
+    this.updateCheck = this.updateCheck.bind(this);
+    this.handleClick = this.handleClick.bind(this);
+    this.handleOpen = this.handleOpen.bind(this);
+    this.handleClose = this.handleClose.bind(this);
   }
 
-  handleChanges(event, index, value) {
-    this.setState({ value });
+  componentWillUnmount(){
+    if((this.state.value =! '' && this.state.values == '') || (this.state.value == '' && this.state.values != '')) 
+    {
+     // this.setState({open: true});
+     if (confirm("Are you sure you want dont want to save you data ?")) {
+       
+      this.render();
+      
+     }else{
+      
+      ReactDOM.render(<Landing />, document.getElementById('container'));
+     }
+    }
   }
 
-  handleChange(event, index, values) {
+  handleOpen  () {
+    this.setState({open: true});
+  };
+
+  handleClose () {
+    this.setState({open: false});
+    alert("going");
+  };
+
+
+  handleChanges(event, index, values) {
     this.setState({ values });
+    console.log(this.state.values);
   }
-  handleClick(event) {
+  goto(){
+    ReactDOM.render(<Landing />, document.getElementById('container'));
+  }
+
+  handleChange(event, index, value) {
+    this.setState({ value });
+    console.log(this.state.value);
+  }
+  updateCheck() {
+    this.setState((oldState) => {
+      return {
+        checked: !oldState.checked,
+      };
+    });
+  }
+
+  
+
+
+  handleClick(countrystr, bannerstr, selecstr){
+    if(countrystr == '' || bannerstr == ''){
+    alert("invalid data","wrong data");
+
+    }else{
+      console.log("----->>>>"+this.state.value+"-->"+this.state.values+"-->"+this.state.checked)
+      const row = 
+        {
+          "columns": [
+            { "value": this.state.value, "selected": true, "rowId": 0, "id": 0, "width": 200 },
+            { "value": this.state.values, "selected": true, "rowId": 0, "id": 1, "width": 200 },
+            { "selected": this.state.checked, "rowId": 0, "id": 5, "width": 40 }
+          ], "selected": this.state.checked, "id": 0
+        }
+        console.log("---row---" + JSON.stringify(row));
+      rows.push(row);
+      console.log("---1---" + JSON.stringify(rows));
+      this.setState({
+        rows:rows,
+        value: [],
+        values: [],
+      });
+      console.log("---2---" + JSON.stringify(this.state.rows));
+     
+    }
 
   }
 
@@ -85,7 +212,27 @@ class ProfileConfig extends Component {
   }
 
   render() {
+
+    const actions = [
+      <FlatButton
+        label="Cancel"
+        primary={true}
+        onClick={this.handleClose}
+      />,
+      <FlatButton
+        label="Submit"
+        primary={true}
+        keyboardFocused={true}
+        onClick={this.handleClose}
+      />,
+    ];
+
+
     const { values } = this.state;
+    console.log("--->"+this.state.value);
+    console.log("--->>"+this.state.values);
+    console.log("--c->>"+this.state.checked);
+    
     return (
       <MuiThemeProvider  >
         <div >
@@ -110,14 +257,16 @@ class ProfileConfig extends Component {
               </div>
               <div>
                 <SelectField
-                  value={this.state.values} multiple={true}
+                  value={this.state.value} multiple={true}
                   onChange={this.handleChange} style={{ width: 500, marginLeft: 22 }}
                 >
-                  <MenuItem value={1} primaryText="United State" />
-                  <MenuItem value={2} primaryText="United Kingdom" />
-                  <MenuItem value={3} primaryText="Mexico" />
-                  <MenuItem value={4} primaryText="India" />
-                  <MenuItem value={5} primaryText="Canada" />
+                  <MenuItem value={"United State"} primaryText="United State" />
+                  <MenuItem value={"United Kingdom"} primaryText="United Kingdom" />
+                  <MenuItem value={"Mexico"} primaryText="Mexico" />
+                  <MenuItem value={"India"} primaryText="India" />
+                  <MenuItem value={"Canada"} primaryText="Canada" />
+                  <MenuItem value={"Brazil" } primaryText="Brazil" />
+                  <MenuItem value={"Chile"} primaryText="Chile" />
                 </SelectField>
               </div>
             </div>
@@ -131,7 +280,7 @@ class ProfileConfig extends Component {
                   multiple={true}
 
                   value={values}
-                  onChange={this.handleChange} style={{ width: 500, marginLeft: 22 }}
+                  onChange={this.handleChanges} style={{ width: 500, marginLeft: 22 }}
                 >
                   {this.menuItems(values)}
                 </SelectField>
@@ -141,8 +290,8 @@ class ProfileConfig extends Component {
             <div style={{ display: 'flex' }}>
               <div style={{ width: 250, textAlign: 'right' }}>
                 <Checkbox
-                  label="Active" labelPosition="left"
-                  style={styles.checkbox}
+                  label="Active" labelPosition="left" checked={this.state.checked}
+                  style={styles.checkbox} onCheck={this.updateCheck.bind(this)}
                 />
               </div>
               <div>
@@ -151,12 +300,37 @@ class ProfileConfig extends Component {
             </div>
             <div style={{ marginTop: 30, marginBottom: 30, textAlign: 'center', }}>
               <RaisedButton label="Save" primary={true} style={{ width: 330, marginBottom: 30,}}
-                            onClick={(event) => this.handleClick(event)} />
+                            onClick={(event) => this.handleClick(this.state.value, this.state.values,this.state.checked)} />
             </div>
 
           </Card>
           <div style={{ marginLeft: 250, marginTop: 15 }}>
-            <ProfileTable />
+          <div>
+
+            <MuiThemeProvider>
+              <EditTable
+                onChange={onChange}
+                rows={this.state.rows}
+                headerColumns={headers}
+                enableDelete={true}
+              />
+            </MuiThemeProvider>
+
+            <div>
+        
+        <Dialog
+          title="Dialog With Actions"
+          actions={actions}
+          modal={true}
+          open={this.state.open}
+          onRequestClose={this.handleClose}
+        >
+          The actions in this window were passed in as an array of React objects.
+        </Dialog>
+      </div>
+
+
+          </div>
           </div>
         </div>
       </MuiThemeProvider>

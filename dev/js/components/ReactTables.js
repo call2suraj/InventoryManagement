@@ -12,130 +12,130 @@ const mydata = [{
   lastName: "babies",
   age: 26
 },
-  {
-    firstName: 'Suraj',
-    lastName: "Behera",
-    age: 36
-  },{
-    firstName: "judge",
-    lastName: "babies",
-    age: 16
-  },
-  {
-    firstName: "quarter",
-    lastName: "driving",
-    age: 17
-  },
-  {
-    firstName: "division",
-    lastName: "society",
-    age: 3
-  },
-  {
-    firstName: "lamp",
-    lastName: "point",
-    age: 2
-  },
-  {
-    firstName: "argument",
-    lastName: "insurance",
-    age: 13
-  },
-  {
-    firstName: "pets",
-    lastName: "fan",
-    age: 27
-  },
-  {
-    firstName: "learning",
-    lastName: "board",
-    age: 9
-  },
-  {
-    firstName: "observation",
-    lastName: "drink",
-    age: 28
-  },
-  {
-    firstName: "burst",
-    lastName: "glove",
-    age: 1
-  },
-  {
-    firstName: "acoustics",
-    lastName: "animal",
-    age: 19
-  },
-  {
-    firstName: "beetle",
-    lastName: "branch",
-    age: 25
-  },
-  {
-    firstName: "invention",
-    lastName: "servant",
-    age: 14
-  },
-  {
-    firstName: "letters",
-    lastName: "driving",
-    age: 12
-  },
-  {
-    firstName: "chess",
-    lastName: "bread",
-    age: 21
-  },
-  {
-    firstName: "ship",
-    lastName: "muscle",
-    age: 29
-  },
-  {
-    firstName: "drug",
-    lastName: "suit",
-    age: 13
-  },
-  {
-    firstName: "edge",
-    lastName: "statement",
-    age: 19
-  },
-  {
-    firstName: "chickens",
-    lastName: "start",
-    age: 20
-  },
-  {
-    firstName: "donkey",
-    lastName: "laugh",
-    age: 14
-  },
-  {
-    firstName: "beetle",
-    lastName: "branch",
-    age: 25
-  },
-  {
-    firstName: "invention",
-    lastName: "servant",
-    age: 14
-  },
-  {
-    firstName: "letters",
-    lastName: "driving",
-    age: 12
-  },
-  {
-    firstName: "chess",
-    lastName: "bread",
-    age: 21
-  },
-  {
-    firstName: "ship",
-    lastName: "muscle",
-    age: 29
-  }
+{
+  firstName: 'Suraj',
+  lastName: "Behera",
+  age: 36
+}, {
+  firstName: "judge",
+  lastName: "babies",
+  age: 16
+},
+{
+  firstName: "quarter",
+  lastName: "driving",
+  age: 17
+},
+{
+  firstName: "division",
+  lastName: "society",
+  age: 3
+},
+{
+  firstName: "lamp",
+  lastName: "point",
+  age: 2
+},
+{
+  firstName: "argument",
+  lastName: "insurance",
+  age: 13
+},
+{
+  firstName: "pets",
+  lastName: "fan",
+  age: 27
+},
+{
+  firstName: "learning",
+  lastName: "board",
+  age: 9
+},
+{
+  firstName: "observation",
+  lastName: "drink",
+  age: 28
+},
+{
+  firstName: "burst",
+  lastName: "glove",
+  age: 1
+},
+{
+  firstName: "acoustics",
+  lastName: "animal",
+  age: 19
+},
+{
+  firstName: "beetle",
+  lastName: "branch",
+  age: 25
+},
+{
+  firstName: "invention",
+  lastName: "servant",
+  age: 14
+},
+{
+  firstName: "letters",
+  lastName: "driving",
+  age: 12
+},
+{
+  firstName: "chess",
+  lastName: "bread",
+  age: 21
+},
+{
+  firstName: "ship",
+  lastName: "muscle",
+  age: 29
+},
+{
+  firstName: "drug",
+  lastName: "suit",
+  age: 13
+},
+{
+  firstName: "edge",
+  lastName: "statement",
+  age: 19
+},
+{
+  firstName: "chickens",
+  lastName: "start",
+  age: 20
+},
+{
+  firstName: "donkey",
+  lastName: "laugh",
+  age: 14
+},
+{
+  firstName: "beetle",
+  lastName: "branch",
+  age: 25
+},
+{
+  firstName: "invention",
+  lastName: "servant",
+  age: 14
+},
+{
+  firstName: "letters",
+  lastName: "driving",
+  age: 12
+},
+{
+  firstName: "chess",
+  lastName: "bread",
+  age: 21
+},
+{
+  firstName: "ship",
+  lastName: "muscle",
+  age: 29
+}
 ];
 export default class ReactTables extends React.Component {
 

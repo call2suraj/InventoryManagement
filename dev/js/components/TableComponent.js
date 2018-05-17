@@ -1,6 +1,6 @@
 import React, {Component} from 'react';
 import DataTables from 'material-ui-datatables';
-
+import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
 const TABLE_COLUMNS = [
   {
     key: 'name',
@@ -43,13 +43,14 @@ export default class TableComponent extends Component {
 
   render() {
     return (
+      <MuiThemeProvider>
       <DataTables
         height={'auto'}
         selectable={false}
         showRowHover={true}
         columns={TABLE_COLUMNS}
         data={TABLE_DATA}
-        showCheckboxes={false}
+        showCheckboxes={true}
         onCellClick={this.handleCellClick}
         onCellDoubleClick={this.handleCellDoubleClick}
         onFilterValueChange={this.handleFilterValueChange}
@@ -58,6 +59,7 @@ export default class TableComponent extends Component {
         count={100}
 
       />
+       </MuiThemeProvider>
     );
   }
 }

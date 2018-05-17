@@ -8,6 +8,7 @@ import Ionicon from 'react-ionicons';
 import LocalizedStrings from 'react-localization';
 import App from '../components/App';
 import UserLogin from '../containers/UserLogin';
+import LandingPage from '../containers/LandingPage';
 import {
   Icon_Flag_BG,
   Icon_Flag_US,
@@ -43,18 +44,32 @@ export default class LanguageChange extends React.Component {
   }
 
   onSetLanguageToItalian (){
-    ReactDOM.render(<App locale="it"/>, document.getElementById('root'));
+    if(this.props.showPage == 'login'){
+      ReactDOM.render(<App locale="it"/>, document.getElementById('root'));
+    }else{
+      ReactDOM.render(<LandingPage locale="it"/>, document.getElementById('container'));
+    }
+   
     strings.setLanguage('it');
     this.handleRequestClose();
   }
   onSetLanguageToEnglish (){
-    ReactDOM.render(<App locale="en"/>, document.getElementById('root'));
+    if(this.props.showPage == 'login'){
+      ReactDOM.render(<App locale="en"/>, document.getElementById('root'));
+    }else{
+      ReactDOM.render(<LandingPage locale="en"/>, document.getElementById('container'));
+    }
     strings.setLanguage('en');
     this.handleRequestClose();
   }
 
   onSetLanguageToIndian(){
-    ReactDOM.render(<App locale="in"/>, document.getElementById('root'));
+    if(this.props.showPage == 'login'){
+      ReactDOM.render(<App locale="in"/>, document.getElementById('root'));
+    }else{
+      ReactDOM.render(<LandingPage locale="in"/>, document.getElementById('container'));
+    }
+    
     strings.setLanguage('in');
     this.handleRequestClose();
   }
@@ -76,6 +91,7 @@ export default class LanguageChange extends React.Component {
   };
 
   render() {
+    console.log("In language change "+this.props.showPage);
     return (
       <div>
           <Ionicon icon="md-settings" style={{paddingTop:15, marginRight: 11}} fontSize="25px" onClick={this.handleClick} color="white"/>

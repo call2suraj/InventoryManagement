@@ -46,7 +46,7 @@ class App extends Component {
 
           {this.props.username ? <Header username={this.props.username} password={this.state.password}/>:<Header username={this.state.username} password={this.state.password}/>}
           <div id='container' style={{ position: 'center',display: 'flex',marginLeft:'65',marginTop:'10', borderWidth:1,}}>
-            {this.props.username == null ? <UserLogin locale={this.props.locale || 'en'} /> : <Landing />}
+            {this.props.username == null ? <UserLogin locale={this.props.locale || 'en'} /> : <Landing locale={this.props.locale || 'en'}/>}
 
             {/*<Login locale={this.props.locale}/>*/}
             {/*<ReactTables />*/}

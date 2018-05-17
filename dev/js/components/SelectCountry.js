@@ -41,7 +41,7 @@ showCountry(){
     </SelectField>);
   }else{
     return(<SelectField
-      value={this.state.value}
+      value={this.state.values}
       onChange={this.handleChange} style={{width:500, marginLeft:22}}
     >
       <MenuItem value={1} primaryText="United State" />

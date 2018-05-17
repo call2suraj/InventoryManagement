@@ -4,6 +4,9 @@ import MenuItem from 'material-ui/MenuItem';
 import ReactDOM from 'react-dom';
 import Reporting from '../containers/Reporting';
 import ExceptionReport from '../containers/ExceptionReport';
+import ExcelComponent from './ExcelComponent';
+import Chart from './Chart';
+
 const styles = {
   customWidth: {
     width: 200,
@@ -44,6 +47,20 @@ export default class ReportMenu extends React.Component {
       ReactDOM.render(<Reporting />, document.getElementById('container'));
       this.setState({value:'reporting'});
     }
+
+    if(value=='chart'){
+      console.log("inside if");
+      ReactDOM.render(<Chart />, document.getElementById('container'));
+      this.setState({value:'reporting'});
+    }
+
+    if(value=='excel'){
+      console.log("inside if");
+      ReactDOM.render(<ExcelComponent />, document.getElementById('container'));
+      this.setState({value:'reporting'});
+    }
+
+    
     this.setState({value:'reporting'});
   }
 
@@ -58,11 +75,11 @@ export default class ReportMenu extends React.Component {
           autoWidth={false}
         >
         <MenuItem  value={'reporting'} primaryText="Reporting"/>
-          <MenuItem value={1} primaryText="Report Summary" />
+          <MenuItem value={'chart'} primaryText="Report Summary" />
           <MenuItem value={2} primaryText="Security Reports" />
           <MenuItem value={3} primaryText="Department Reports" />
           <MenuItem value={'ereport'} primaryText="Exception Reporting" />
-          <MenuItem value={5} primaryText="Inventory Reports" />
+          <MenuItem value={'excel'} primaryText="Inventory Reports" />
           <MenuItem value={'exception'} primaryText="Exception Management" />
         </DropDownMenu>
       </div>

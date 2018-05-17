@@ -174,8 +174,6 @@ class AddLineLanding extends Component {
 
             </div>
 
-
-
             <div style={{ display: 'flex',marginLeft:55}}>
               <TextField
                 floatingLabelText="Multiplier" style={{marginLeft:10, marginRight:25}}

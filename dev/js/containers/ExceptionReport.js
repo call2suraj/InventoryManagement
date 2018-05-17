@@ -43,6 +43,16 @@ const rows = [
             { "value": "2.5", "selected": true, "rowId": 0, "id": 4, "width": 200 },
             { "selected": true, "rowId": 0, "id": 5, "width": 40 }
         ], "selected": false, "id": 0
+    },
+    {
+        "columns": [
+            { "value": "UK", "selected": true, "rowId": 0, "id": 0, "width": 200 },
+            { "value": "UK-Wal-Mart", "selected": true, "rowId": 0, "id": 1, "width": 200 },
+            { "value": "26", "selected": true, "rowId": 0, "id": 2, "width": 200 },
+            { "value": "2.6", "selected": true, "rowId": 0, "id": 3, "width": 200 },
+            { "value": "2.6", "selected": true, "rowId": 0, "id": 4, "width": 200 },
+            { "selected": true, "rowId": 0, "id": 5, "width": 40 }
+        ], "selected": false, "id": 0
     }
 
 ]
