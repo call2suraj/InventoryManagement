@@ -31,11 +31,11 @@ const names = [
 ];
 
 const data = [
-  { name: 'Inv A', uv: 400, pv: 200, amt: 100 },
-  { name: 'Inv B', uv: 300, pv: 198, amt: 210 },
-  { name: 'Inv C', uv: 200, pv: 750, amt: 130 },
-  { name: 'Inv D', uv: 280, pv: 210, amt: 145 },
-  { name: 'Inv E', uv: 190, pv: 300, amt: 66 },
+  { name: 'Inv A', stock: 400, inv: 200, amt: 100 },
+  { name: 'Inv B', stock: 300, inv: 168, amt: 210 },
+  { name: 'Inv C', stock: 200, inv: 750, amt: 130 },
+  { name: 'Inv D', stock: 280, inv: 210, amt: 145 },
+  { name: 'Inv E', stock: 190, inv: 300, amt: 66 },
   
 ];
 
@@ -222,11 +222,12 @@ class LandingPage extends Component {
                   margin={{ top: 10, right: 10, left: 80, bottom: 10 }}>
                   <XAxis dataKey="name" />
                   <YAxis />
-                  <CartesianGrid strokeDasharray="3 3" />
+                  <CartesianGrid strokeDasharray="4 4" />
                   <Tooltip />
                   <Legend />
-                  <Line type="monotone" dataKey="pv" stroke="#8884d8" activeDot={{ r: 8 }} />
-                  <Line type="monotone" dataKey="uv" stroke="#82ca9d" />
+                  <Line type="monotone" dataKey="stock" stroke="#8884d8" activeDot={{ r: 8 }} />
+                  <Line type="monotone" dataKey="inv" stroke="#82ca9d" />
+                  <Line type="monotone" dataKey="amt" stroke="#cc33ff" />
                 </LineChart>
               </div>
               {/* </Card> <br/> */}

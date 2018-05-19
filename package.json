@@ -14,6 +14,7 @@
     "@devexpress/dx-react-grid": "^1.1.1",
     "@devexpress/dx-react-grid-material-ui": "^1.1.1",
     "@react-pdf/core": "^0.7.6",
+    "axios": "^0.18.0",
     "babel-core": "^6.10.4",
     "babel-loader": "^6.2.4",
     "babel-polyfill": "^6.9.1",

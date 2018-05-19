@@ -1,10 +1,10 @@
 import React, { Component } from 'react';
-
+//import ProfileConfig from '../containers/P'
 
 import Dialog from 'material-ui/Dialog';
 import FlatButton from 'material-ui/FlatButton';
 
-
+//import ReactDOM from 'react-dom';
 import SelectField from 'material-ui/SelectField';
 import TextField from 'material-ui/TextField';
 import MenuItem from 'material-ui/MenuItem';
@@ -122,9 +122,9 @@ class ProfileConfig extends Component {
     if((this.state.value =! '' && this.state.values == '') || (this.state.value == '' && this.state.values != '')) 
     {
      // this.setState({open: true});
-     if (confirm("Are you sure you want dont want to save you data ?")) {
+     if (confirm("Are you sure you dont want to save you data ?")) {
        
-      this.render();
+     // this.render();
       
      }else{
       
@@ -147,9 +147,7 @@ class ProfileConfig extends Component {
     this.setState({ values });
     console.log(this.state.values);
   }
-  goto(){
-    ReactDOM.render(<Landing />, document.getElementById('container'));
-  }
+
 
   handleChange(event, index, value) {
     this.setState({ value });
@@ -316,18 +314,7 @@ class ProfileConfig extends Component {
               />
             </MuiThemeProvider>
 
-            <div>
-        
-        <Dialog
-          title="Dialog With Actions"
-          actions={actions}
-          modal={true}
-          open={this.state.open}
-          onRequestClose={this.handleClose}
-        >
-          The actions in this window were passed in as an array of React objects.
-        </Dialog>
-      </div>
+          
 
 
           </div>
