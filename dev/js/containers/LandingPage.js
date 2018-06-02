@@ -133,6 +133,13 @@ class LandingPage extends Component {
         cancelLabel="Annuler"
         locale="fr"/>);
     }
+    if(this.props.locale =='in'){
+      return(<DatePicker textFieldStyle={{ width: 500 }} style={{ marginLeft: 22 }} onChange={this.calendarSelect}
+        DateTimeFormat={DateTimeFormat}
+        okLabel="ठीक"
+        cancelLabel="रद्द कर"
+        locale="in"/>);
+    }
     
   }
 
@@ -151,6 +158,13 @@ class LandingPage extends Component {
         okLabel="OK"
         cancelLabel="Annuler"
         locale="fr"/>);
+    }
+    if(this.props.locale =='in'){
+      return(<DatePicker textFieldStyle={{ width: 500 }} style={{ marginLeft: 22 }} minDate={this.state.minDate}
+        DateTimeFormat={DateTimeFormat}
+        okLabel="ठीक"
+        cancelLabel="रद्द कर"
+        locale="in"/>);
     }
   }
 

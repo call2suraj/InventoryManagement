@@ -6,6 +6,7 @@ import ReconLineConfig from '../containers/ReconLineConfig';
 import ShrinkProvision from '../containers/ShrinkProvision';
 import ProfileConfig from '../containers/ProfileConfig';
 import Config from '../containers/Config';
+import Emails from '../components/Emails';
 const styles = {
   customWidth: {
     width: 190,
@@ -49,7 +50,12 @@ export default class ConfigureMenu extends React.Component {
       ReactDOM.render(<Config />, document.getElementById('container'));
       this.setState({value:0});
     }
-    
+    if(value=='email'){
+      console.log("inside if");
+      ReactDOM.render(<Emails />, document.getElementById('container'));
+      this.setState({value:0});
+    }
+
     this.setState({value:0});
   }
 
@@ -70,7 +76,7 @@ export default class ConfigureMenu extends React.Component {
           <MenuItem value={'crew'} primaryText="Profile Configuration" />
           <MenuItem value={'config'} primaryText="Config" />
           <MenuItem value={"shrink"} primaryText="Shrink Provision" />
-          <MenuItem value={7} primaryText="Email Template" />
+          <MenuItem value={'email'} primaryText="Email Template" />
           <MenuItem value={8} primaryText="Line Schedule" />
         </DropDownMenu>
       </div>
