@@ -7,6 +7,7 @@ import RaisedButton from 'material-ui/RaisedButton';
 import { getAlerts } from '../actions';
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
 import { Card, CardActions, CardHeader, CardText } from 'material-ui/Card';
+import Ionicon from 'react-ionicons';
 const header =[{_id:'ID',Product:'Product',Location:'Location',Subject:'Description',AlertPriority:'Priority',AlertType:'Type',AlertStatus:'Status'}];
 export default class LiveData extends React.Component {
 
@@ -89,6 +90,11 @@ export default class LiveData extends React.Component {
                                 {elem.AlertStatus}
                             </text>
                         </div>
+                        <div style={{ display: 'flex', marginLeft: 55, width: 100 }}>
+                            <text style={{color:'#00bcd4'}}>
+                                {"Delete"}
+                            </text>
+                        </div>
                 </div>
             </Card>
         </MuiThemeProvider>
@@ -139,8 +145,11 @@ export default class LiveData extends React.Component {
                         <div style={{ display: 'flex', marginLeft: 55, width: 100 }}>
                        
 
-                    <RaisedButton label="Delete" primary={true} style={{ width: 30, marginLeft:5}}
-                        onClick={(event) => this.handleClick(event,elem)} />
+                    {/* <RaisedButton label="Delete" primary={true} style={{ width: 30, marginLeft:5}}
+                        onClick={(event) => this.handleClick(event,elem)} /> */}
+
+                        <Ionicon icon="md-trash" style={{paddingTop:0, marginRight: 11}} 
+                        fontSize="25px" onClick={(event) => this.handleClick(event,elem)} color="#00bcd4"/>
                         </div>
 
                     </div>
